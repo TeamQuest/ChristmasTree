@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/Movable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/EvilTree.gd" type="Script" id=2]
+[ext_resource path="res://bullets/Bauble.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/conifers.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 22.4196
+height = 33.725
+
+[node name="EvilTree" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+Bullet = ExtResource( 3 )
+speed = 80
+gun_cooldown = 0.8
+max_health = 50
+detect_radius = 250
+arm_speed = 1
+
+[node name="Body" parent="." index="0"]
+position = Vector2( -3.1777, 0 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 391, 2, 79, 158 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -1.72073, 43.6815 )
+rotation = 1.57524
+shape = SubResource( 1 )
+
+[node name="Hand" parent="Arm" index="0"]
+position = Vector2( 20, 0 )
+
+[node name="DetectRadius" type="Area2D" parent="." index="4"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius" index="0"]
+position = Vector2( -0.456024, 39.4547 )
+[connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
+[connection signal="body_exited" from="DetectRadius" to="." method="_on_DetectRadius_body_exited"]

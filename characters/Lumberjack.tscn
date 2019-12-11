@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://characters/Movable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/Lumberjack.gd" type="Script" id=2]
+[ext_resource path="res://bullets/Axe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/player.png" type="Texture" id=4]
+[ext_resource path="res://images/arm.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.5179
+height = 14.8581
+
+[node name="Lumberjack" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 2 )
+Bullet = ExtResource( 3 )
+speed = 100
+gun_cooldown = 0.4
+max_health = 100
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -7.6592e-006, 23.3016 )
+rotation = 1.56504
+shape = SubResource( 1 )
+
+[node name="Arm" parent="." index="2"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 5 )
+offset = Vector2( 20, 0 )
+
+[node name="Hand" parent="Arm" index="0"]
+position = Vector2( 54, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+position = Vector2( 54, -16 )
+current = true

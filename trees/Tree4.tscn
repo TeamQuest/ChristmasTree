@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/conifers.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 32.3613
+height = 43.1591
+
+[node name="Tree4" type="StaticBody2D"]
+position = Vector2( -0.614702, -54.0948 )
+collision_mask = 14
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 643, 3, 120, 208 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.26473, 54.4412 )
+rotation = 1.5708
+shape = SubResource( 1 )

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ItemsOnScene.gd" type="Script" id=1]
+[ext_resource path="res://trees/Trees.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/EvilTree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/Lumberjack.tscn" type="PackedScene" id=4]
+
+[node name="ItemsOnScene" type="YSort"]
+script = ExtResource( 1 )
+
+[node name="Trees" parent="." instance=ExtResource( 2 )]
+position = Vector2( 145.974, 157.081 )
+
+[node name="EvilTree" parent="." instance=ExtResource( 3 )]
+position = Vector2( 720.35, 130.107 )
+
+[node name="Lumberjack" parent="." instance=ExtResource( 4 )]
+position = Vector2( 428.402, 242.761 )
+[connection signal="shoot" from="EvilTree" to="." method="_on_Movable_shoot"]
+[connection signal="shoot" from="Lumberjack" to="." method="_on_Movable_shoot"]
