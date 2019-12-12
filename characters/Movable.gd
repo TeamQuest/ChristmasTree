@@ -41,7 +41,7 @@ func _physics_process(delta):
 
 func take_damage(amount):
 	health -= amount
-	$AnimationPlayer.play("spit_blood")
+	$OnBodyAnimation.play("spit_blood")
 	emit_signal('health_changed', health * 100/max_health)
 	if(health <= 0):
 		die()
