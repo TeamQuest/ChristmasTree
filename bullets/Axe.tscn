@@ -2,18 +2,18 @@
 
 [ext_resource path="res://bullets/Bullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bullets/Axe.gd" type="Script" id=2]
-[ext_resource path="res://bullets/bullet.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="StreamTexture" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Axe" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 speed = 500
-damage = 10
 lifetime = 0.5
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource( 3 )
+texture = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )

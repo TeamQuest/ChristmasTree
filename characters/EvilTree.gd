@@ -1,16 +1,15 @@
 extends "res://characters/Movable.gd"
 
 var target = null
+var detect_radius: int
 
-export (int) var detect_radius
 export (int) var arm_speed
  
 func _ready():
-	var circle = CircleShape2D.new()
-	$DetectRadius/CollisionShape2D.shape = circle
-	$DetectRadius/CollisionShape2D.shape.radius = detect_radius
+	$DeadBody.visible = false
+	detect_radius = $DetectRadius/CollisionShape2D.shape.radius
  
-func control(delta):
+func control(_delta):
 	pass
  
 func kill():
@@ -39,6 +38,11 @@ func _on_DetectRadius_body_exited(body):
 		target = null
 
 func die():
-	target = null
-	alive = false
-	$Body.texture = load("res://images/arm.png")
+	if alive:
+		z_index = -2
+		$DeadBody.frame = randi() % 4
+		target = null
+		$DeadBody.visible = true
+		$Body.visible = false
+		$BodyCollider.set_deferred("disabled", true)
+		alive = false

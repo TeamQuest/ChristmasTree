@@ -23,7 +23,7 @@ func _ready():
 	emit_signal("health_changed", health * 100/max_health)
 	$GunTimer.wait_time = gun_cooldown
 
-func control(delta):
+func control(_delta):
 	pass
 
 func shoot():
@@ -37,10 +37,12 @@ func _physics_process(delta):
 	if not alive:
 		return
 	control(delta)
-	move_and_slide(velocity * speed * delta)
+	velocity = move_and_slide(velocity * speed * delta)
 
 func take_damage(amount):
 	health -= amount
+	if alive:
+		$OnBodyAnimation.play("spit_blood")
 	emit_signal('health_changed', health * 100/max_health)
 	if(health <= 0):
 		die()
@@ -50,3 +52,8 @@ func _on_GunTimer_timeout():
 
 func die():
 	queue_free()
+
+func _when_near_poof_xd(anim_name):
+	if anim_name == 'spit_blood' and health <= 0:
+		$Poof.visible = true
+		$OnBodyAnimation.play("poof_out", -1, 2.0)

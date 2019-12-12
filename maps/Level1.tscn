@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://maps/Level.gd" type="Script" id=1]
 [ext_resource path="res://tiles/grass.png" type="Texture" id=2]
 [ext_resource path="res://characters/EvilTree.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/Lumberjack.tscn" type="PackedScene" id=4]
-[ext_resource path="res://trees/Trees.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://bullets/Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://trees/Trees.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grass.png 0"
@@ -186,6 +187,7 @@ __meta__ = {
 }
 
 [node name="Ground" type="TileMap" parent="."]
+z_index = -3
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
@@ -208,6 +210,7 @@ position = Vector2( 1290.3, -74.6938 )
 position = Vector2( 939.918, 550.636 )
 
 [node name="EvilTree3" parent="Sort/enemies" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( -47.9568, 536.037 )
 
 [node name="EvilTree4" parent="Sort/enemies" instance=ExtResource( 3 )]
@@ -221,466 +224,467 @@ position = Vector2( 397.317, -49.1452 )
 
 [node name="Lumberjack" parent="Sort" instance=ExtResource( 4 )]
 position = Vector2( 264.217, 253.384 )
+Bullet = ExtResource( 5 )
 
 [node name="forest" type="YSort" parent="Sort"]
 
-[node name="Trees" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 241.256, 67.9585 )
 
-[node name="Trees3" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees3" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 252.426, 443.293 )
 
-[node name="Trees4" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees4" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 527.225, 434.357 )
 
-[node name="Trees5" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees5" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 862.345, 61.256 )
 
-[node name="Trees53" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees53" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4.43701, 425.42 )
 
-[node name="Trees6" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees6" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 815.428, 443.293 )
 
-[node name="Trees2" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees2" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1456, 52.3195 )
 
-[node name="Trees47" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees47" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1737.5, -188.967 )
 
-[node name="Trees136" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees136" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1737.5, -188.967 )
 
-[node name="Trees49" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees49" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2311.67, -23.6411 )
 
-[node name="Trees101" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees101" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3493.53, -59.3873 )
 
-[node name="Trees7" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees7" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1460.46, 244.455 )
 
-[node name="Trees45" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees45" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1741.96, 3.16843 )
 
-[node name="Trees52" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees52" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2320.61, 170.729 )
 
-[node name="Trees8" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees8" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1462.7, 436.591 )
 
-[node name="Trees43" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees43" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1744.2, 195.304 )
 
-[node name="Trees50" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees50" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2309.44, -220.245 )
 
-[node name="Trees145" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees145" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2309.44, -220.245 )
 
-[node name="Trees98" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees98" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3491.29, -255.991 )
 
-[node name="Trees148" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees148" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3491.29, -255.991 )
 
-[node name="Trees81" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees81" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2901.48, -41.5143 )
 
-[node name="Trees92" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees92" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4007.38, 499.147 )
 
-[node name="Trees120" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees120" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4583.79, -211.309 )
 
-[node name="Trees147" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees147" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4583.79, -211.309 )
 
-[node name="Trees141" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees141" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4539.1, 782.882 )
 
-[node name="Trees102" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees102" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3216.49, 141.685 )
 
-[node name="Trees85" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees85" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3191.92, -50.4508 )
 
-[node name="Trees100" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees100" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4297.82, 490.21 )
 
-[node name="Trees128" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees128" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4874.22, -220.245 )
 
-[node name="Trees133" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees133" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4829.54, 773.945 )
 
-[node name="Trees105" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees105" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3506.93, 132.748 )
 
-[node name="Trees82" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees82" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2901.48, -222.479 )
 
-[node name="Trees146" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees146" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2901.48, -222.479 )
 
-[node name="Trees99" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees99" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4038.66, -255.991 )
 
-[node name="Trees149" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees149" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4038.66, -255.991 )
 
-[node name="Trees88" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees88" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3191.92, -231.416 )
 
-[node name="Trees135" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees135" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3191.92, -231.416 )
 
-[node name="Trees91" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees91" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4329.09, -264.928 )
 
-[node name="Trees137" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees137" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4329.09, -264.928 )
 
-[node name="Trees78" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees78" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2309.44, -220.245 )
 
-[node name="Trees144" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees144" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2309.44, -220.245 )
 
-[node name="Trees95" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees95" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3491.29, -255.991 )
 
-[node name="Trees152" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees152" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3491.29, -255.991 )
 
-[node name="Trees80" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees80" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2901.48, -41.5143 )
 
-[node name="Trees97" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees97" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4007.38, 499.147 )
 
-[node name="Trees129" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees129" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4583.79, -211.309 )
 
-[node name="Trees131" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees131" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4583.79, -211.309 )
 
-[node name="Trees132" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees132" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4539.1, 782.882 )
 
-[node name="Trees106" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees106" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3216.49, 141.685 )
 
-[node name="Trees87" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees87" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3191.92, -50.4508 )
 
-[node name="Trees89" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees89" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4297.82, 490.21 )
 
-[node name="Trees122" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees122" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4874.22, -220.245 )
 
-[node name="Trees139" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees139" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4829.54, 773.945 )
 
-[node name="Trees104" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees104" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3506.93, 132.748 )
 
-[node name="Trees84" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees84" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2901.48, -222.479 )
 
-[node name="Trees143" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees143" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2901.48, -222.479 )
 
-[node name="Trees94" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees94" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4038.66, -255.991 )
 
-[node name="Trees150" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees150" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4038.66, -255.991 )
 
-[node name="Trees86" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees86" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3191.92, -231.416 )
 
-[node name="Trees134" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees134" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3191.92, -231.416 )
 
-[node name="Trees90" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees90" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4329.09, -264.928 )
 
-[node name="Trees138" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees138" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4329.09, -264.928 )
 
-[node name="Trees54" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees54" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2027.93, -213.543 )
 
-[node name="Trees140" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees140" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2027.93, -213.543 )
 
-[node name="Trees79" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees79" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2619.98, -34.8119 )
 
-[node name="Trees96" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees96" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3725.88, 505.849 )
 
-[node name="Trees103" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees103" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2934.99, 148.387 )
 
-[node name="Trees83" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees83" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2619.98, -215.777 )
 
-[node name="Trees142" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees142" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2619.98, -215.777 )
 
-[node name="Trees93" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees93" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3757.16, -249.289 )
 
-[node name="Trees151" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees151" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3757.16, -249.289 )
 
-[node name="Trees55" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees55" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2633.39, 155.09 )
 
-[node name="Trees12" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees12" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1476.1, 626.492 )
 
-[node name="Trees46" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees46" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1757.6, 385.206 )
 
-[node name="Trees51" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees51" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2336.24, 552.766 )
 
-[node name="Trees77" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees77" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2354.12, 1035.34 )
 
-[node name="Trees13" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees13" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1476.1, 838.735 )
 
-[node name="Trees44" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees44" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1757.6, 597.449 )
 
-[node name="Trees48" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees48" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2336.24, 791.819 )
 
-[node name="Trees76" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees76" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2354.12, 1274.39 )
 
-[node name="Trees14" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees14" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1762.07, 807.458 )
 
-[node name="Trees15" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees15" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 848.31, 1102.36 )
 
-[node name="Trees34" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees34" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 868.417, 1330.25 )
 
-[node name="Trees42" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees42" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2220.07, 1296.73 )
 
-[node name="Trees58" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees58" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3406.4, 530.424 )
 
-[node name="Trees60" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees60" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3410.86, 693.516 )
 
-[node name="Trees118" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees118" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4226.33, 695.75 )
 
-[node name="Trees121" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees121" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4802.73, -14.7048 )
 
-[node name="Trees67" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees67" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3430.97, 912.462 )
 
-[node name="Trees130" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees130" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4822.84, 204.241 )
 
-[node name="Trees69" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees69" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3442.14, 1138.11 )
 
-[node name="Trees125" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees125" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4834.01, 429.888 )
 
-[node name="Trees73" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees73" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3442.14, 1301.2 )
 
-[node name="Trees119" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees119" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4834.01, 592.98 )
 
-[node name="Trees16" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees16" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 580.214, 1102.36 )
 
-[node name="Trees35" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees35" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 600.321, 1330.25 )
 
-[node name="Trees38" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees38" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1951.97, 1296.73 )
 
-[node name="Trees59" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees59" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3138.3, 530.424 )
 
-[node name="Trees62" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees62" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3142.77, 693.516 )
 
-[node name="Trees116" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees116" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3958.23, 695.75 )
 
-[node name="Trees127" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees127" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4534.64, -14.7048 )
 
-[node name="Trees65" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees65" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3162.88, 912.462 )
 
-[node name="Trees126" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees126" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4554.74, 204.241 )
 
-[node name="Trees71" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees71" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3174.05, 1138.11 )
 
-[node name="Trees124" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees124" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4565.91, 429.888 )
 
-[node name="Trees72" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees72" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3174.05, 1301.2 )
 
-[node name="Trees123" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees123" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 4565.91, 592.98 )
 
-[node name="Trees17" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees17" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 316.586, 1100.13 )
 
-[node name="Trees33" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees33" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 336.693, 1328.01 )
 
-[node name="Trees41" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees41" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1688.35, 1294.5 )
 
-[node name="Trees57" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees57" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2874.67, 528.19 )
 
-[node name="Trees61" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees61" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2879.14, 691.282 )
 
-[node name="Trees117" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees117" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 3694.6, 693.516 )
 
-[node name="Trees66" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees66" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2899.25, 910.228 )
 
-[node name="Trees70" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees70" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2910.42, 1135.88 )
 
-[node name="Trees74" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees74" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2910.42, 1298.97 )
 
-[node name="Trees18" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees18" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 39.5527, 1115.77 )
 
-[node name="Trees36" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees36" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 59.6599, 1343.65 )
 
-[node name="Trees40" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees40" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1411.31, 1310.14 )
 
-[node name="Trees56" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees56" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2597.64, 543.829 )
 
-[node name="Trees63" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees63" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2602.11, 706.921 )
 
-[node name="Trees64" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees64" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2622.21, 925.867 )
 
-[node name="Trees68" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees68" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2633.39, 1151.51 )
 
-[node name="Trees75" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees75" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 2633.39, 1314.61 )
 
-[node name="Trees19" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees19" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -219.607, 1122.47 )
 
-[node name="Trees112" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees112" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -493.763, 1126.08 )
 
-[node name="Trees37" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees37" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -219.607, 1357.06 )
 
-[node name="Trees110" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees110" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -493.763, 1360.66 )
 
-[node name="Trees39" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees39" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1132.05, 1323.54 )
 
-[node name="Trees20" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees20" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -224.075, 914.696 )
 
-[node name="Trees111" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees111" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -498.231, 918.304 )
 
-[node name="Trees21" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees21" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -226.31, 711.39 )
 
-[node name="Trees115" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees115" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -500.465, 714.997 )
 
-[node name="Trees22" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees22" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -226.31, 552.766 )
 
-[node name="Trees107" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees107" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -500.465, 556.374 )
 
-[node name="Trees23" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees23" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -235.246, 394.143 )
 
-[node name="Trees108" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees108" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -509.401, 397.75 )
 
-[node name="Trees24" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees24" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -230.778, 210.943 )
 
-[node name="Trees113" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees113" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -504.933, 214.551 )
 
-[node name="Trees25" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees25" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -239.714, 34.4466 )
 
-[node name="Trees109" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees109" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -513.87, 38.0539 )
 
-[node name="Trees26" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees26" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -230.778, -153.221 )
 
-[node name="Trees114" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees114" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -504.933, -149.614 )
 
-[node name="Trees27" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees27" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( -18.5349, -162.157 )
 
-[node name="Trees28" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees28" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 256.264, -166.626 )
 
-[node name="Trees29" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees29" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 539.999, -168.86 )
 
-[node name="Trees30" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees30" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 821.5, -166.626 )
 
-[node name="Trees31" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees31" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1406.84, -175.562 )
 
-[node name="Trees32" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees32" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 1111.94, -168.86 )
 
-[node name="Trees9" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees9" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 810.33, 668.941 )
 
-[node name="Trees10" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees10" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 542.233, 668.941 )
 
-[node name="Trees11" parent="Sort/forest" instance=ExtResource( 5 )]
+[node name="Trees11" parent="Sort/forest" instance=ExtResource( 6 )]
 position = Vector2( 258.498, 675.643 )
 
-[node name="HUD" parent="." instance=ExtResource( 6 )]
+[node name="HUD" parent="." instance=ExtResource( 7 )]
 [connection signal="shoot" from="Sort/enemies/EvilTree1" to="." method="_on_Movable_shoot"]
 [connection signal="shoot" from="Sort/enemies/EvilTree6" to="." method="_on_Movable_shoot"]
 [connection signal="shoot" from="Sort/enemies/EvilTree3" to="." method="_on_Movable_shoot"]
