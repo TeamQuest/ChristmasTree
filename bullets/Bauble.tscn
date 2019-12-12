@@ -5,16 +5,17 @@
 [ext_resource path="res://images/bauble.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 8.2837
 
 [node name="Bauble" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
 collision_mask = 3
 script = ExtResource( 2 )
-speed = 300
-damage = 20
-lifetime = 0.6
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( 0, 0 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 0 )
 shape = SubResource( 1 )

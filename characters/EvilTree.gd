@@ -10,7 +10,7 @@ func _ready():
 	$DetectRadius/CollisionShape2D.shape = circle
 	$DetectRadius/CollisionShape2D.shape.radius = detect_radius
  
-func control(delta):
+func control(_delta):
 	pass
  
 func kill():

@@ -1,35 +1,145 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://characters/Movable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/Lumberjack.gd" type="Script" id=2]
-[ext_resource path="res://bullets/Axe.tscn" type="PackedScene" id=3]
-[ext_resource path="res://images/player.png" type="Texture" id=4]
-[ext_resource path="res://images/arm.png" type="Texture" id=5]
+[ext_resource path="res://lumberjack.png" type="Texture" id=3]
+[ext_resource path="res://images/arm.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 10.5179
 height = 14.8581
 
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+length = 12.0
+step = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10.4, 10.8, 11.2, 11.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 5, 6, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk_down"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 0, 17, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk_left"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.521406 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "walk_right"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "walk_up"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
 [node name="Lumberjack" instance=ExtResource( 1 )]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 2 )
-Bullet = ExtResource( 3 )
 speed = 100
 gun_cooldown = 0.4
 max_health = 100
 
 [node name="Body" parent="." index="0"]
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 6
+frame = 1
+region_rect = Rect2( 0, 0, 110, 110 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -7.6592e-006, 23.3016 )
+position = Vector2( -7.6592e-06, 23.3016 )
 rotation = 1.56504
 shape = SubResource( 1 )
 
 [node name="Arm" parent="." index="2"]
-position = Vector2( 0, -16 )
-texture = ExtResource( 5 )
+position = Vector2( 0.664856, 6.60336 )
+texture = ExtResource( 4 )
 offset = Vector2( 20, 0 )
 
 [node name="Hand" parent="Arm" index="0"]
@@ -38,3 +148,11 @@ position = Vector2( 54, 0 )
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 position = Vector2( 54, -16 )
 current = true
+
+[node name="AnimationPlayer" parent="." index="5"]
+playback_speed = 3.0
+anims/idle = SubResource( 5 )
+anims/walk_down = SubResource( 6 )
+anims/walk_left = SubResource( 3 )
+anims/walk_right = SubResource( 4 )
+anims/walk_up = SubResource( 2 )
