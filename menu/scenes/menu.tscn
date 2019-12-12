@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://menu/scenes/scripts/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://menu/menu_images/axe.png" type="Texture" id=2]
+[ext_resource path="res://menu/fonts/pricedow.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://menu/menu_images/tree_logo.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="menu" type="Node2D"]
+
+[node name="TitleScreen" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 597.0
+script = ExtResource( 1 )
+
+[node name="Menu" type="VBoxContainer" parent="TitleScreen"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 900.0
+margin_bottom = 500.0
+
+[node name="Logo" type="TextureRect" parent="TitleScreen/Menu"]
+margin_right = 800.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="TitleScreen/Menu"]
+margin_top = 68.0
+margin_right = 800.0
+margin_bottom = 400.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="TitleScreen/Menu/CenterRow"]
+margin_right = 398.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="NewGame" type="Button" parent="TitleScreen/Menu/CenterRow/Buttons"]
+margin_top = 56.0
+margin_right = 398.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 360, 60 )
+flat = true
+
+[node name="Label" type="Label" parent="TitleScreen/Menu/CenterRow/Buttons/NewGame"]
+margin_left = 1.16635
+margin_right = 173.166
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "New Game"
+
+[node name="Button" type="Button" parent="TitleScreen/Menu/CenterRow/Buttons"]
+margin_top = 136.0
+margin_right = 398.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 360, 60 )
+flat = true
+
+[node name="Label" type="Label" parent="TitleScreen/Menu/CenterRow/Buttons/Button"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "Set Name"
+
+[node name="Exit" type="Button" parent="TitleScreen/Menu/CenterRow/Buttons"]
+margin_top = 216.0
+margin_right = 398.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 360, 60 )
+flat = true
+
+[node name="Label" type="Label" parent="TitleScreen/Menu/CenterRow/Buttons/Exit"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "Exit"
+
+[node name="CenterContainer" type="CenterContainer" parent="TitleScreen/Menu/CenterRow"]
+margin_left = 402.0
+margin_right = 800.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Page" type="TextureRect" parent="TitleScreen/Menu/CenterRow/CenterContainer"]
+margin_left = 49.0
+margin_top = 16.0
+margin_right = 349.0
+margin_bottom = 316.0
+texture = ExtResource( 4 )
+[connection signal="pressed" from="TitleScreen/Menu/CenterRow/Buttons/NewGame" to="TitleScreen" method="_on_NewGame_pressed"]
+[connection signal="pressed" from="TitleScreen/Menu/CenterRow/Buttons/Exit" to="TitleScreen" method="_on_Exit_pressed"]
