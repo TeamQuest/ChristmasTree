@@ -15,7 +15,7 @@ func start(_position, _direction):
 		
 	$AnimationPlayer.play("throw")
 	$Lifetime.wait_time = lifetime
-	velocity = _direction * speed
+	velocity = _direction * speed * 1.5
 	$Lifetime.start()
 
 func _process(delta):
