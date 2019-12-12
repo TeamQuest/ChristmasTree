@@ -187,6 +187,7 @@ __meta__ = {
 }
 
 [node name="Ground" type="TileMap" parent="."]
+z_index = -3
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
@@ -209,6 +210,7 @@ position = Vector2( 1290.3, -74.6938 )
 position = Vector2( 939.918, 550.636 )
 
 [node name="EvilTree3" parent="Sort/enemies" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( -47.9568, 536.037 )
 
 [node name="EvilTree4" parent="Sort/enemies" instance=ExtResource( 3 )]

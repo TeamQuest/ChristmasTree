@@ -22,10 +22,12 @@ func _process(delta):
 	position += velocity * delta
 
 func _on_Bullet_body_entered(body):
-	$AnimationPlayer.stop()
-	queue_free()
-	if body.has_method('take_damage'):
-		body.take_damage(damage)
+	var has_alive = body.get('alive') != null
+	if not has_alive or body.alive:
+		$AnimationPlayer.stop()
+		queue_free()
+		if body.has_method('take_damage'):
+			body.take_damage(damage)
 
 func _on_Lifetime_timeout():
 	queue_free()

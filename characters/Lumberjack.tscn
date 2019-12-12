@@ -2,14 +2,13 @@
 
 [ext_resource path="res://characters/Movable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/Lumberjack.gd" type="Script" id=2]
-[ext_resource path="res://lumberjack.png" type="Texture" id=3]
+[ext_resource path="res://images/lumberjack.png" type="Texture" id=3]
 [ext_resource path="res://images/arm.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 10.5179
-height = 14.8581
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.868
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 12.0
 step = 0.4
@@ -26,7 +25,7 @@ tracks/0/keys = {
 "values": [ 0, 4, 5, 6, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "walk_down"
 step = 0.25
 tracks/0/type = "value"
@@ -42,8 +41,7 @@ tracks/0/keys = {
 "values": [ 16, 0, 17, 0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk_left"
+[sub_resource type="Animation" id=4]
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -71,8 +69,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "walk_right"
+[sub_resource type="Animation" id=5]
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -100,8 +97,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "walk_up"
+[sub_resource type="Animation" id=6]
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -133,8 +129,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 110, 110 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -7.6592e-06, 23.3016 )
-rotation = 1.56504
+position = Vector2( -1.70193, 28.0821 )
 shape = SubResource( 1 )
 
 [node name="Arm" parent="." index="2"]
@@ -151,8 +146,8 @@ current = true
 
 [node name="AnimationPlayer" parent="." index="5"]
 playback_speed = 3.0
-anims/idle = SubResource( 5 )
-anims/walk_down = SubResource( 6 )
-anims/walk_left = SubResource( 3 )
-anims/walk_right = SubResource( 4 )
-anims/walk_up = SubResource( 2 )
+anims/idle = SubResource( 2 )
+anims/walk_down = SubResource( 3 )
+anims/walk_left = SubResource( 4 )
+anims/walk_right = SubResource( 5 )
+anims/walk_up = SubResource( 6 )

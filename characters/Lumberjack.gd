@@ -33,5 +33,6 @@ func control(_delta):
 		shoot()
 
 func die():
-	#game over
+#	game over
+	$Camera2D.current = false
 	queue_free()
