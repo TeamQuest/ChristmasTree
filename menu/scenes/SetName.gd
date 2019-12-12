@@ -16,4 +16,4 @@ func _ready():
 func _on_Button_pressed():
 	var got_name_from_text_edit = $HBoxContainer/TextEdit.text;
 	get_node("/root/globals").player_name = got_name_from_text_edit;
-	get_tree().change_scene("res://menu/scenes/menu.tscn")
+	get_tree().change_scene("res://maps/Level1.tscn")
