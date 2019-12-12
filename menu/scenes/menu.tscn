@@ -145,8 +145,9 @@ margin_right = 349.0
 margin_bottom = 316.0
 texture = ExtResource( 5 )
 
-[node name="Audio" type="AudioStreamPlayer3D" parent="TitleScreen"]
+[node name="Audio" type="AudioStreamPlayer" parent="TitleScreen"]
 stream = ExtResource( 6 )
+volume_db = -8.32
 autoplay = true
 [connection signal="pressed" from="TitleScreen/Menu/CenterRow/Buttons/NewGame" to="TitleScreen" method="_on_NewGame_pressed"]
 [connection signal="pressed" from="TitleScreen/Menu/CenterRow/Buttons/Exit" to="TitleScreen" method="_on_Exit_pressed"]

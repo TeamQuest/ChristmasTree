@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/end_game.wav-26e46746b810469bb2a9d2d07cb819ec.sample"
+
+[deps]
+
+source_file="res://sounds/end_game.wav"
+dest_files=[ "res://.import/end_game.wav-26e46746b810469bb2a9d2d07cb819ec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

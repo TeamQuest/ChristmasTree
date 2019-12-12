@@ -2,9 +2,7 @@ extends Control
 
 
 func _ready():
-	$Audio.autoplay = true;
-	$Audio.playing = true;
-	pass # Replace with function body.
+	pass
 
 
 func _on_NewGame_pressed():

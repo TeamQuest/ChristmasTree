@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://menu/scenes/SetName.gd" type="Script" id=1]
+[ext_resource path="res://menu/scenes/scripts/SetName.gd" type="Script" id=1]
 [ext_resource path="res://menu/fonts/pricedow.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://menu/menu_images/blood.png" type="Texture" id=3]
 [ext_resource path="res://menu/menu_images/blood_2.png" type="Texture" id=4]
+[ext_resource path="res://sounds/set_name.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -73,4 +74,9 @@ margin_right = 1051.41
 margin_bottom = 648.592
 texture = ExtResource( 4 )
 stretch_mode = 1
+
+[node name="Audio" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource( 5 )
+volume_db = -17.828
+autoplay = true
 [connection signal="pressed" from="Control/HBoxContainer/Button" to="Control" method="_on_Button_pressed"]

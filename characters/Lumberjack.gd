@@ -21,3 +21,4 @@ func control(delta):
 func die():
 	#game over
 	queue_free()
+	get_tree().get_root().get_node("Level/Audio_dead").play()

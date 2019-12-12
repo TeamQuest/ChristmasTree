@@ -4,7 +4,8 @@ var target = null
 
 export (int) var detect_radius
 export (int) var arm_speed
- 
+
+
 func _ready():
 	var circle = CircleShape2D.new()
 	$DetectRadius/CollisionShape2D.shape = circle
@@ -33,6 +34,9 @@ func _process(delta):
 func _on_DetectRadius_body_entered(body):
 	if body.name == "Lumberjack":
 		target = body
+		get_tree().get_root().get_node("Level/Audio_run").play()
+		
+		
 
 func _on_DetectRadius_body_exited(body):
 	if body == target:
