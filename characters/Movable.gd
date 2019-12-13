@@ -20,7 +20,7 @@ var health
  
 func _ready():
 	health = max_health
-	emit_signal("health_changed", health * 100/max_health)
+	emit_signal("health_changed", health * 100/max_health, 0)
 	$GunTimer.wait_time = gun_cooldown
 
 func control(_delta):
@@ -43,8 +43,8 @@ func take_damage(amount):
 	health -= amount
 	if alive:
 		$OnBodyAnimation.play("spit_blood")
-	emit_signal('health_changed', health * 100/max_health)
-	if(health <= 0):
+	emit_signal('health_changed', health * 100 / max_health, amount)
+	if health <= 0:
 		die()
 
 func _on_GunTimer_timeout():

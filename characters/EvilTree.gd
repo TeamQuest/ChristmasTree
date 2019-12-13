@@ -4,6 +4,7 @@ var target = null
 var detect_radius: int
 
 export (int) var arm_speed
+export (int) var proximity_distance
  
 func _ready():
 	$DeadBody.visible = false
@@ -18,7 +19,8 @@ func kill():
 func _process(delta):
 	if target and alive:
 		var vec_to_player = (target.global_position - global_position).normalized()
-		velocity = vec_to_player * 100
+		var proximity = target.global_position.distance_to(global_position) > proximity_distance
+		velocity = vec_to_player * 100 * int(proximity)
 		
 		var current_dir = Vector2(1, 0).rotated($Arm.global_rotation)
 		$Arm.global_rotation = current_dir.linear_interpolate(vec_to_player, arm_speed * delta).angle()
