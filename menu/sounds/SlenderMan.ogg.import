@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SlenderMan.ogg-2442bda295504dcba08b4b2063148689.oggstr"
+
+[deps]
+
+source_file="res://menu/sounds/SlenderMan.ogg"
+dest_files=[ "res://.import/SlenderMan.ogg-2442bda295504dcba08b4b2063148689.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

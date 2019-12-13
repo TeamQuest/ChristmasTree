@@ -5,7 +5,7 @@ var detect_radius: int
 
 export (int) var arm_speed
 export (int) var proximity_distance
- 
+
 func _ready():
 	$DeadBody.visible = false
 	detect_radius = $DetectRadius/CollisionShape2D.shape.radius
@@ -34,6 +34,9 @@ func _process(delta):
 func _on_DetectRadius_body_entered(body):
 	if body.name == "Lumberjack":
 		target = body
+		get_tree().get_root().get_node("Level/Audio_run").play()
+		
+		
 
 func _on_DetectRadius_body_exited(body):
 	if body == target:

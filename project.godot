@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="christmasTree"
-run/main_scene="res://maps/Level1.tscn"
+run/main_scene="res://menu/scenes/menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+globals="*res://globals.gd"
 
 [display]
 
@@ -85,4 +89,5 @@ click={
 [rendering]
 
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 environment/default_environment="res://default_env.tres"
