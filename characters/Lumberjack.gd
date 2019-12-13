@@ -36,3 +36,8 @@ func die():
 #	game over
 	$Camera2D.current = false
 	queue_free()
+
+
+func _on_Lumberjack_health_changed(value, damaged):
+	if damaged > 25:
+		$CritAnimation.play("crit")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/Movable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/Lumberjack.gd" type="Script" id=2]
 [ext_resource path="res://images/lumberjack.png" type="Texture" id=3]
 [ext_resource path="res://images/arm.png" type="Texture" id=4]
+[ext_resource path="res://images/crit.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.868
@@ -113,6 +114,47 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "crit"
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Crit:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Crit:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Crit:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 720.0 ]
+}
+
 [node name="Lumberjack" instance=ExtResource( 1 )]
 collision_layer = 2
 collision_mask = 5
@@ -151,3 +193,13 @@ anims/walk_down = SubResource( 3 )
 anims/walk_left = SubResource( 4 )
 anims/walk_right = SubResource( 5 )
 anims/walk_up = SubResource( 6 )
+
+[node name="Crit" type="Sprite" parent="." index="9"]
+visible = false
+position = Vector2( 37.5955, -69.4699 )
+rotation = 12.5664
+texture = ExtResource( 5 )
+
+[node name="CritAnimation" type="AnimationPlayer" parent="." index="10"]
+anims/crit = SubResource( 7 )
+[connection signal="health_changed" from="." to="." method="_on_Lumberjack_health_changed"]

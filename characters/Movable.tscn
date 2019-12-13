@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "poof_out"
 length = 1.4
 step = 0.2
@@ -37,8 +37,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "spit_blood"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -71,8 +70,8 @@ visible = false
 anims/spit_blood = SubResource( 1 )
 
 [node name="OnBodyAnimation" type="AnimationPlayer" parent="."]
-anims/poof_out = SubResource( 3 )
-anims/spit_blood = SubResource( 2 )
+anims/poof_out = SubResource( 2 )
+anims/spit_blood = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.928711, 0 )
