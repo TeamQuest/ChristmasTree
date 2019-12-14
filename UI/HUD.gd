@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func update_healthbar(value):
+func update_healthbar(value, dmg):
 	$Margin/Container/HealthBar.value = value
 
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://menu/scenes/scripts/SetName.gd" type="Script" id=1]
 [ext_resource path="res://menu/fonts/pricedow.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://menu/menu_images/blood.png" type="Texture" id=3]
 [ext_resource path="res://menu/menu_images/blood_2.png" type="Texture" id=4]
 [ext_resource path="res://sounds/set_name.wav" type="AudioStream" id=5]
+[ext_resource path="res://video/video_intro.ogv" type="VideoStream" id=6]
+[ext_resource path="res://menu/scenes/VideoPlayer.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -79,4 +81,13 @@ stretch_mode = 1
 stream = ExtResource( 5 )
 volume_db = -17.828
 autoplay = true
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+visible = false
+margin_right = 1023.0
+margin_bottom = 599.0
+stream = ExtResource( 6 )
+expand = false
+script = ExtResource( 7 )
 [connection signal="pressed" from="Control/HBoxContainer/Button" to="Control" method="_on_Button_pressed"]
+[connection signal="finished" from="VideoPlayer" to="VideoPlayer" method="_on_VideoPlayer_finished"]
