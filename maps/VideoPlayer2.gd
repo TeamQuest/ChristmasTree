@@ -10,7 +10,9 @@ func _ready():
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
+		stop()
 		hide()
 	
 func _on_VideoPlayer_finished():
+	stop()
 	hide()
