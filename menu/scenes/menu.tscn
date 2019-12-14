@@ -26,6 +26,7 @@ font_data = ExtResource( 4 )
 [node name="menu" type="Node2D"]
 
 [node name="TitleScreen" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 1024.0
 margin_bottom = 597.0
 script = ExtResource( 1 )

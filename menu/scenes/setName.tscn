@@ -23,6 +23,7 @@ font_data = ExtResource( 2 )
 [node name="setName" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 1024.0
 margin_bottom = 601.0
 script = ExtResource( 1 )

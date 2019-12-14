@@ -21,3 +21,7 @@ func _on_Movable_shoot(bullet, _position, _direction):
 	var b = bullet.instance()
 	add_child(b)
 	b.start(_position, _direction)
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Lumberjack":
+		get_tree().change_scene("res://maps/EndSceneD.tscn")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/fonts/pricedow.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://video/video_end.ogv" type="VideoStream" id=2]
+[ext_resource path="res://maps/VideoPlayer2.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+font_data = ExtResource( 1 )
+
+[node name="EndScene" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 371.005
+margin_top = 232.787
+margin_right = 691.005
+margin_bottom = 413.787
+custom_fonts/font = SubResource( 1 )
+text = "THE END"
+
+[node name="VideoPlayer2" type="VideoPlayer" parent="."]
+margin_right = 1024.0
+margin_bottom = 598.0
+stream = ExtResource( 2 )
+autoplay = true
+script = ExtResource( 3 )

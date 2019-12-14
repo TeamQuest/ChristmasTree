@@ -16,5 +16,5 @@ func _ready():
 func _on_Button_pressed():
 	var got_name_from_text_edit = $HBoxContainer/TextEdit.text;
 	get_node("/root/globals").player_name = got_name_from_text_edit;
-	get_node("/root/setName/VideoPlayer").show()
-	get_node("/root/setName/VideoPlayer").play()
+	get_tree().get_root().get_node("/root/setName/VideoPlayer").show()
+	get_tree().get_root().get_node("/root/setName/VideoPlayer").play()
